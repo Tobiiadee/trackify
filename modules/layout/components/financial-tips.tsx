@@ -1,6 +1,6 @@
 import { Text } from "@/modules/common/components/text";
 import { Button } from "@/modules/common/ui/button";
-import { ChevronRight } from "lucide-react";
+import { Blend, ChevronRight, DatabaseZap, FileKey2 } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -54,7 +54,8 @@ function Tips() {
 function MoreInfo() {
   return (
     <div className='lg:absolute lg:-bottom-44 left-1/2 translate lg:-translate-x-1/2 flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-8 items-start p-6 lg:p-14 rounded-2xl bg-foreground'>
-      <div className='flex flex-col space-y-6'>
+      <div className='flex flex-col space-y-2 items-center'>
+        <DatabaseZap size={24} strokeWidth={1.5} className='text-background' />
         <Text variant={"h5"} className='text-background uppercase'>
           Transparent
         </Text>
@@ -66,7 +67,8 @@ function MoreInfo() {
         </Text>
       </div>
 
-      <div className='flex flex-col space-y-6'>
+      <div className='flex flex-col space-y-2 items-center'>
+        <Blend size={24} strokeWidth={1.5} className='text-background' />
         <Text variant={"h5"} className='text-background uppercase'>
           Flexible
         </Text>
@@ -79,7 +81,8 @@ function MoreInfo() {
         </Text>
       </div>
 
-      <div className='flex flex-col space-y-6'>
+      <div className='flex flex-col space-y-2 items-center'>
+        <FileKey2 size={24} strokeWidth={1.5} className='text-background' />
         <Text variant={"h5"} className='text-background uppercase'>
           Secure
         </Text>

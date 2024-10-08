@@ -11,6 +11,7 @@ import Header from "@/modules/layout/header/header";
 import React from "react";
 import BudgetManagment from "@/modules/layout/components/budget-managment";
 import RealTimeInsight from "@/modules/layout/components/real-time-insight";
+import Faq from "@/modules/layout/components/faq";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
       <WhatSafe />
       <FinancialTips />
       <Testimonials />
+      <Faq />
       <KeepEasy />
     </div>
   );

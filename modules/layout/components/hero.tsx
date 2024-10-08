@@ -3,6 +3,7 @@ import { Button } from "@/modules/common/ui/button";
 import React from "react";
 import SpanGrid from "./span-grid";
 import { Separator } from "@/modules/common/ui/separator";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -31,8 +32,10 @@ export default function Hero() {
         </Text>
       </div>
 
-      <Button className='w-max'>
-        <Text variant={"p"}>Get Started</Text>
+      <Button asChild className='w-max text-background'>
+        <Link href={"/get-started"}>
+          <Text variant={"p"}>Get Started</Text>
+        </Link>
       </Button>
     </SpanGrid>
   );
