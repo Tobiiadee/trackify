@@ -129,7 +129,7 @@ function Options() {
   );
 }
 
-function GoogleIcon() {
+export function GoogleIcon() {
   return (
     <svg
       width='20px'
