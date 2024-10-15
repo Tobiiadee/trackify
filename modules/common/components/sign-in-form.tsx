@@ -17,6 +17,7 @@ import { GoogleIcon } from "./create-account-form";
 import { Text } from "./text";
 import { Separator } from "../ui/separator";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const signInSchema = z.object({
   email: z.string().email({
@@ -28,6 +29,8 @@ const signInSchema = z.object({
 });
 
 export default function SignInForm() {
+  const { push } = useRouter();
+
   const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
     defaultValues: {
@@ -40,6 +43,8 @@ export default function SignInForm() {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
+
+    push("/dashboard");
   }
 
   return (

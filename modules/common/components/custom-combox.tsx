@@ -27,7 +27,7 @@ interface ComboboxProps<T> {
   selectedValue?: T;
   inputPlaceholder?: string;
   isSearch?: boolean;
-  label: string;
+  label?: string;
 }
 
 export function Combobox<T extends string>({
@@ -43,7 +43,7 @@ export function Combobox<T extends string>({
   const [value, setValue] = React.useState(placeholder);
 
   return (
-    <div className='flex flex-col space-y-2 w-full'>
+    <div className='flex flex-col space-y-2 w-full h-full'>
       <Text variant={"p"}>{label}</Text>
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild className="w-full">
@@ -51,7 +51,7 @@ export function Combobox<T extends string>({
             variant='outline'
             role='combobox'
             aria-expanded={open}
-            className='w-full justify-between'>
+            className='w-full text-xs justify-between capitalize'>
             {selectedValue
               ? items.find((item) => item.value === selectedValue)?.label
               : value}
@@ -59,14 +59,14 @@ export function Combobox<T extends string>({
           </Button>
         </PopoverTrigger>
         <PopoverContent className='w-full p-0'>
-          <Command>
+          <Command id="scroll" className="w-full  ">
             {isSearch && <CommandInput placeholder={inputPlaceholder} />}
-            <CommandList>
+            <CommandList id="scroll" className="w-full">
               <CommandEmpty>No item found.</CommandEmpty>
               <CommandGroup>
                 {items.map((item) => (
                   <CommandItem
-                  className="w-full"
+                  className="w-full text-xs"
                     key={item.value}
                     value={item.value}
                     onSelect={() => {

@@ -1,10 +1,15 @@
+"use client";
+
 import React from "react";
 import { Text } from "./text";
 import { ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function WelcomeToTrackify() {
+  const { push } = useRouter();
+
   return (
     <div className='grid lg:grid-cols-2 lg:gap-4 sm:pl-4 lg:pl-10'>
       <div className='pt-10 flex flex-col space-y-6'>
@@ -34,7 +39,10 @@ export default function WelcomeToTrackify() {
         </Text>
 
         <div className='w-full flex justify-center'>
-          <Button type='button' className='w-[80%]'>
+          <Button
+            onClick={() => push("/dashboard")}
+            type='button'
+            className='w-[80%]'>
             Go to My Dashboard
           </Button>
         </div>
@@ -55,11 +63,7 @@ export default function WelcomeToTrackify() {
 function TextSub({ text }: { text: string }) {
   return (
     <div className='flex space-x-2 items-center'>
-      <ChevronRight
-        size={20}
-        strokeWidth={2.5}
-        className='font-semibold'
-      />
+      <ChevronRight size={20} strokeWidth={2.5} className='font-semibold' />
       <Text variant={"p"} className='italic'>
         {text}
       </Text>
