@@ -1,10 +1,10 @@
 import React from "react";
 // import Logo from "../../../../common/components/logo";
 // import DashboardNav from "./dashboard-nav";
-import { Input } from "../../../../common/ui/input";
-import { Bell, Search } from "lucide-react";
+import { Bell } from "lucide-react";
 import { Separator } from "../../../../common/ui/separator";
 import DashboardProfile from "../../../../common/components/dashboard-profile";
+import InputSearch from "@/modules/common/components/input-search";
 
 export default function DashboardDesktopHeader() {
   return (
@@ -21,17 +21,7 @@ export default function DashboardDesktopHeader() {
           <Separator orientation='vertical' />
         </div>
 
-        <div className='relative w-[350px] max-w-full'>
-          <Search
-            size={18}
-            strokeWidth={1.5}
-            className='absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500'
-          />
-          <Input
-            placeholder='Search now...'
-            className='w-full pl-10' // Adjust padding for the icon
-          />
-        </div>
+        <InputSearch placeholder="Search..." />
       </div>
     </div>
   );
@@ -42,7 +32,7 @@ function Notification() {
     <div className='w-8 relative aspect-square rounded-full grid place-items-center border'>
       <Bell size={18} strokeWidth={1.5} />
 
-      <div className="w-2 aspect-square absolute top-0 right-0 rounded-full bg-red-500" />
+      <div className='w-2 aspect-square absolute top-0 right-0 rounded-full bg-red-500' />
     </div>
   );
 }

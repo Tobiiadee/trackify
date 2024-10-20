@@ -14,7 +14,9 @@ export default function DashboardSavingPlan() {
         </Text>
 
         <Button variant={"link"} className='text-blue-600'>
-          <Text variant={"p"} className="text-xs">View All</Text>
+          <Text variant={"p"} className='text-xs'>
+            View All
+          </Text>
         </Button>
       </div>
 
@@ -29,24 +31,25 @@ export default function DashboardSavingPlan() {
 
 function SavedItem() {
   return (
-    <div className='flex flex-col space-y-2 pt-4'>
-      <div className='flex space-x-2 items-center justify-between'>
+    <div className='flex flex-col space-y-2 pt-4 cursor-pointer hover:scale-105 active:scale-100 transition'>
+      <div className='flex space-x-4 items-center'>
         <div className='w-10 h-10 bg-foreground/5 rounded-md flex items-center justify-center'>
           <House size={26} strokeWidth={1.5} />
         </div>
 
         <div className='flex flex-col space-y-0.5'>
-          <Text variant={"p"} className='capitalize'>
+          <Text variant={"p"} className='capitalize font-semibold'>
             New Home
           </Text>
-          <Text variant={"p"} className='text-foreground/60 text-xs'>
-            Deadline: 2023-05-01
-          </Text>
+          <div className='flex items-center space-x-1'>
+            <Text variant={"p"} className='text-foreground/60 text-xs'>
+              End Date:
+            </Text>
+            <Text variant={"p"} className='font-semibold text-xs'>
+              2023-05-01
+            </Text>
+          </div>
         </div>
-
-        <Text variant={"p"} className='text-foreground/60 text-xs'>
-          Activities: 37
-        </Text>
       </div>
 
       <div className='flex items-center justify-between'>

@@ -115,7 +115,7 @@ export default function DashboardTransactions() {
 
       <Button
         onClick={() => router.push("/dashboard/transactions")}
-        className='bg-blue-500 hover:bg-blue-600 text-background rounded-lg w-max'>
+        className='bg-blue-600 hover:bg-blue-700 text-background rounded-lg w-max'>
         <Text variant={"p"}>View All</Text>
       </Button>
     </DashboardCard>

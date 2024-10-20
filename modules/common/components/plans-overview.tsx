@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
 import { Card } from "../ui/card";
 import { Text } from "./text";
 // import { Button } from "../ui/button";
@@ -8,19 +10,30 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/modules/common/ui/tooltip";
-import {
-  House,
-  NotebookPen,
-  NotepadText,
-  PackagePlus,
-  PauseIcon,
-} from "lucide-react";
+import { House, NotepadText, PauseIcon, Play } from "lucide-react";
 import { PriorityLevel } from "./plans-item";
 import RadialProgress from "../ui/radial-progress";
+import PlansEdit from "./plans-edit";
+import { Textarea } from "../ui/textarea";
+import { Button } from "../ui/button";
+import { PlansEditContribution } from "./plans-edit-contribution";
 
 export default function PlansOverview() {
+  const [editNote, setEditNote] = useState(false);
+  const [pausePlan, setPausePlan] = useState(false);
+
+  const handleEditNote = () => {
+    setEditNote((prev) => !prev);
+  };
+
+  const handlePausePlan = () => {
+    setPausePlan((prev) => !prev);
+  };
+
   return (
-    <Card className='w-full col-span-2 max-h-[76vh] p-4 flex flex-col space-y-6'>
+    <Card
+      id='scroll'
+      className='w-full col-span-2 max-h-[76vh] p-4 flex flex-col space-y-6 overflow-y-auto'>
       <div className='flex items-center justify-between'>
         <div className='flex items-center space-x-4'>
           <div>
@@ -35,21 +48,23 @@ export default function PlansOverview() {
         </div>
 
         <div className='flex items-center space-x-0.5'>
-          <ActionButton text='Edit plan'>
-            <NotebookPen size={20} strokeWidth={1.5} />
-          </ActionButton>
+          <PlansEdit />
 
-          <ActionButton text='Edit note'>
+          <PlansActionButton onClick={handleEditNote} text='Edit note'>
             <NotepadText size={20} strokeWidth={1.5} />
-          </ActionButton>
+          </PlansActionButton>
 
-          <ActionButton text='Pause plan'>
-            <PauseIcon size={20} strokeWidth={1.5} />
-          </ActionButton>
+          {!pausePlan ? (
+            <PlansActionButton onClick={handlePausePlan} text='Pause plan'>
+              <PauseIcon size={20} strokeWidth={1.5} />
+            </PlansActionButton>
+          ) : (
+            <PlansActionButton onClick={handlePausePlan} text='Play plan'>
+              <Play size={20} strokeWidth={1.5} />
+            </PlansActionButton>
+          )}
 
-          <ActionButton text='Add contribution'>
-            <PackagePlus size={20} strokeWidth={1.5} />
-          </ActionButton>
+          <PlansEditContribution />
         </div>
       </div>
 
@@ -59,23 +74,32 @@ export default function PlansOverview() {
       </div>
 
       <div className='flex flex-col space-y-2'>
-        <Text variant={"h5"} className="font-semibold italic">Note:</Text>
-        <NoteItem />
+        <Text variant={"h5"} className='font-semibold italic'>
+          Note:
+        </Text>
+        <NoteItem editNote={editNote} setEditNote={handleEditNote} />
       </div>
     </Card>
   );
 }
 
-interface ActionButtonProps {
+interface ActionButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   text: string;
+  onClick?: () => void;
 }
 
-function ActionButton({ children, text }: ActionButtonProps) {
+export function PlansActionButton({
+  children,
+  text,
+  onClick,
+}: ActionButtonProps) {
   return (
     <TooltipProvider>
       <Tooltip>
-        <TooltipTrigger className='grid place-items-center p-1.5 border-transparent border hover:border-border rounded-md'>
+        <TooltipTrigger
+          onClick={onClick}
+          className='grid place-items-center p-1.5 border-transparent border hover:border-border rounded-md'>
           {children}
         </TooltipTrigger>
         <TooltipContent className='mr-14'>
@@ -88,7 +112,23 @@ function ActionButton({ children, text }: ActionButtonProps) {
 
 function PlansOverviewBody() {
   return (
-    <div className='flex flex-col space-y-4'>
+    <div className='flex flex-col space-y-2'>
+      <div className='flex items-center space-x-2'>
+        <Text variant={"p"} className='font-semibold italic text-foreground/60'>
+          Category:
+        </Text>
+        <Text variant={"p"} className='font-semibold'>
+          Rent/Mortgage
+        </Text>
+      </div>
+      <div className='flex items-center space-x-2'>
+        <Text variant={"p"} className='font-semibold italic text-foreground/60'>
+          Frequency:
+        </Text>
+        <Text variant={"p"} className='font-semibold'>
+          Monthly
+        </Text>
+      </div>
       <div className='flex items-center space-x-2'>
         <Text variant={"p"} className='font-semibold italic text-foreground/60'>
           Priority:
@@ -131,14 +171,56 @@ function PlansOverviewBody() {
   );
 }
 
-function NoteItem() {
+function NoteItem({
+  editNote,
+  setEditNote,
+}: {
+  editNote: boolean;
+  setEditNote: () => void;
+}) {
+  const noteRef = useRef<HTMLTextAreaElement>(null);
+  const [noteValue, setNoteValue] = React.useState(
+    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias et aut fuga, soluta dolorem odio dignissimos quaerat nesciunt nobis laudantium placeat iusto architecto saepe quae suscipit vel."
+  );
+
+  console.log(editNote);
+
+  useEffect(() => {
+    if (editNote === true) {
+      noteRef.current?.focus();
+    }
+  }, [editNote]);
+
   return (
-    <div className='border border-dashed p-4 rounded-lg'>
-      <Text variant={"p"}>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias et
-        aut fuga, soluta dolorem odio dignissimos quaerat nesciunt nobis
-        laudantium placeat iusto architecto saepe quae suscipit vel.
-      </Text>
-    </div>
+    <>
+      {editNote && (
+        <div className='flex flex-col space-y-2'>
+          <label htmlFor='note' className='hidden'></label>
+          <Textarea
+            id='note'
+            ref={noteRef}
+            value={noteValue}
+            onChange={(e) => setNoteValue(e.target.value)} // Allow updating the value
+            placeholder='Note'
+            className='p-4 rounded-lg w-full text-xs max-h-max min-h-max'
+          />
+          <div className='flex items-center justify-end '>
+            <Button
+              onClick={setEditNote}
+              className='bg-blue-600 hover:bg-blue-700'>
+              <Text variant={"p"}>Save</Text>
+            </Button>
+          </div>
+        </div>
+      )}
+
+      {!editNote && (
+        <div className='p-4 rounded-lg border border-dashed'>
+          <Text variant={"p"} className='text-xs'>
+            {noteValue}
+          </Text>
+        </div>
+      )}
+    </>
   );
 }

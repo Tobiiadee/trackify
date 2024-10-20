@@ -58,10 +58,10 @@ export function Combobox<T extends string>({
             <ChevronDown className='ml-2 h-4 w-4 shrink-0 opacity-50' />
           </Button>
         </PopoverTrigger>
-        <PopoverContent className='w-full p-0'>
+        <PopoverContent className='w-full p-0 max-h-[200px]'>
           <Command id="scroll" className="w-full  ">
             {isSearch && <CommandInput placeholder={inputPlaceholder} />}
-            <CommandList id="scroll" className="w-full">
+            <CommandList id="scroll" className="w-full max-h-[200px]">
               <CommandEmpty>No item found.</CommandEmpty>
               <CommandGroup>
                 {items.map((item) => (

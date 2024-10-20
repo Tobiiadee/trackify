@@ -1,15 +1,8 @@
 import React from "react";
 import { Text } from "./text";
 import { Progress } from "../ui/progress";
-import { House, NotebookPen } from "lucide-react";
+import { House } from "lucide-react";
 import DashboardCard from "@/modules/layout/components/dashboard-card";
-import { Button } from "../ui/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/modules/common/ui/tooltip";
 
 export default function PlansItem() {
   return (
@@ -28,9 +21,9 @@ export default function PlansItem() {
             </Text>
             <div className='flex items-center space-x-1'>
               <Text variant={"p"} className='text-foreground/60 text-xs'>
-                Deadline:
+                End Date:
               </Text>
-              <Text variant={"p"} className='text-foreground text-xs'>
+              <Text variant={"p"} className='text-foreground font-semibold text-xs'>
                 2023-05-01
               </Text>
             </div>
@@ -101,19 +94,19 @@ export function PriorityLevel({ priority }: PriorityLevelProps) {
   );
 }
 
-function AddNote() {
-  return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger>
-          <Button variant={"ghost"}>
-            <NotebookPen size={18} strokeWidth={1.5} />
-          </Button>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p>Add note</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
-  );
-}
+// function AddNote() {
+//   return (
+//     <TooltipProvider>
+//       <Tooltip>
+//         <TooltipTrigger>
+//           <Button variant={"ghost"}>
+//             <NotebookPen size={18} strokeWidth={1.5} />
+//           </Button>
+//         </TooltipTrigger>
+//         <TooltipContent>
+//           <p>Add note</p>
+//         </TooltipContent>
+//       </Tooltip>
+//     </TooltipProvider>
+//   );
+// }

@@ -1,4 +1,3 @@
-import { Text } from "@/modules/common/components/text";
 import TransactionStats from "@/modules/common/components/transaction-stats";
 import { TransactionAllChartStats } from "@/modules/layout/components/transaction-all-chart-stats";
 import TransactionMain from "@/modules/layout/components/transaction-main";
