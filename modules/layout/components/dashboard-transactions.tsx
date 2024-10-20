@@ -4,23 +4,10 @@ import React from "react";
 import DashboardCard from "./dashboard-card";
 import { Text } from "@/modules/common/components/text";
 import { Button } from "@/modules/common/ui/button";
-import {
-  ArrowBigDown,
-  ArrowBigDownDash,
-  ArrowBigUp,
-  ArrowUpDown,
-  EllipsisVertical,
-  ListFilter,
-} from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/modules/common/ui/dropdown-menu";
+import { ArrowBigDown, ArrowBigUp, ArrowUpDown } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-export const transactions = [
+export const transactions: TransactionItemProps[] = [
   {
     time: "12:00 AM",
     date: "22-01-23",
@@ -72,28 +59,6 @@ export default function DashboardTransactions() {
         <Text variant={"h5"} className='font-medium'>
           Recent Transaction
         </Text>
-
-        {/* <div className='flex items-center space-x-6'>
-          <Button
-            variant={"outline"}
-            className='flex space-x-2 items-center border-blue-600'>
-            <ListFilter size={20} strokeWidth={1.5} className='text-blue-600' />
-            <Text variant={"p"} className='text-blue-600'>
-              Fliter
-            </Text>
-          </Button>
-
-          <Button
-            variant={"default"}
-            size={"icon"}
-            className='bg-blue-500 hover:bg-blue-600'>
-            <ArrowBigDownDash
-              size={20}
-              strokeWidth={1.5}
-              className='text-background '
-            />
-          </Button>
-        </div> */}
       </div>
 
       <div className='flex flex-col space-y-4'>
@@ -249,22 +214,5 @@ export function TransactionTableHeader() {
         </Text>
       </div>
     </div>
-  );
-}
-
-function MoreOptions() {
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger className='rounded-full w-6 hover:bg-foreground/5 flex items-center justify-center'>
-        <EllipsisVertical
-          size={20}
-          strokeWidth={1.5}
-          className='text-foreground/60'
-        />
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className='mr-10 mt-1'>
-        <DropdownMenuItem>Delete</DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
   );
 }
