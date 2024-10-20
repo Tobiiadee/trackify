@@ -5,7 +5,7 @@ import AdditionalInfoForm from "./additional-info-form";
 
 export default function AdditionaInfoMain() {
   return (
-    <div className='sm:w-full lg:w-[60%] pt-10 flex flex-col space-y-4 items-center px-6'>
+    <div className='sm:w-full lg:w-[70%] pt-10 flex flex-col space-y-4 items-center px-6'>
       <div className='flex flex-col space-y-4 items-center'>
         <Logo />
         <div className='flex flex-col items-center space-y-1'>
