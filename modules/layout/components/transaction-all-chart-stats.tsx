@@ -139,7 +139,7 @@ export function TransactionAllChartStats() {
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
-            <Bar dataKey="amount" layout="vertical" radius={5} fill={({ payload }) => payload.fill} />
+            <Bar dataKey="amount" layout="vertical" radius={5}  />
           </BarChart>
         </ChartContainer>
       </CardContent>
