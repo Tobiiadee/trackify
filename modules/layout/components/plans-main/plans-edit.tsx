@@ -22,7 +22,7 @@ export default function PlansEdit() {
       </DialogTrigger>
       <DialogContent
         id='scroll'
-        className='lg:h-[90vh] overflow-y-auto lg:max-w-[40vw] flex flex-col space-y-6'>
+        className='h-screen lg:h-[90vh] overflow-y-auto lg:max-w-[40vw] flex flex-col space-y-6'>
         <DialogHeader className='h-max'>
           <DialogTitle>
             <Text variant={"h5"} className='text-center font-semibold'>
