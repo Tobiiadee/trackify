@@ -7,26 +7,29 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/modules/common/ui/dialog";
-import { NotebookPen } from "lucide-react";
-import { Text } from "./text";
-import PlansEditForm from "./plans-edit-form";
-import { PlansActionButton } from "./plans-overview";
+import { Button } from "../../../common/ui/button";
+import { Plus } from "lucide-react";
+import { Text } from "../../../common/components/text";
+import PlansAddForm from "./plans-add-form";
 
-export default function PlansEdit() {
+export default function PlansAdd() {
   return (
     <Dialog>
-      <DialogTrigger>
-        <PlansActionButton text='Edit plan'>
-          <NotebookPen size={20} strokeWidth={1.5} />
-        </PlansActionButton>
+      <DialogTrigger asChild className="self-end sm:self-start">
+        <Button className='flex space-x-2 bg-blue-600 hover:bg-blue-700 text-background shadow rounded-md w-max'>
+          <Plus size={20} strokeWidth={1.5} />
+          <Text variant={"p"} className='text-background'>
+            Add Plan
+          </Text>
+        </Button>
       </DialogTrigger>
       <DialogContent
         id='scroll'
-        className='h-[90vh] overflow-y-auto max-w-[40vw] flex flex-col space-y-6'>
+        className='lg:h-[90vh] overflow-y-auto lg:max-w-[40vw] flex flex-col space-y-6'>
         <DialogHeader className='h-max'>
           <DialogTitle>
             <Text variant={"h5"} className='text-center font-semibold'>
-              Edit your Savings Plan
+              Create A New Savings Plan
             </Text>
           </DialogTitle>
           <DialogDescription>
@@ -37,7 +40,7 @@ export default function PlansEdit() {
             </Text>
           </DialogDescription>
         </DialogHeader>
-        <PlansEditForm />
+        <PlansAddForm />
       </DialogContent>
     </Dialog>
   );

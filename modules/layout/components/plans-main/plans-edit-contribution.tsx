@@ -15,8 +15,8 @@ import { Input } from "@/modules/common/ui/input";
 import { Label } from "@/modules/common/ui/label";
 import { PackagePlus } from "lucide-react";
 import { PlansActionButton } from "./plans-overview";
-import { Text } from "./text";
-import NairaSvg from "./naira-svg";
+import { Text } from "../../../common/components/text";
+import NairaSvg from "../../../common/components/naira-svg";
 import { useState } from "react";
 
 export function PlansEditContribution() {

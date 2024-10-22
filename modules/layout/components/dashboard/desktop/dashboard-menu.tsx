@@ -15,7 +15,7 @@ export default function DashboardMenu() {
       <MenuItem href="/dashboard/plans" tooltip="Plans">
         <SquareDashedKanban size={22} strokeWidth={1.5} />
       </MenuItem>
-      <MenuItem href="/dashboard/reports"  tooltip="Budgets">
+      <MenuItem href="/dashboard/budgets"  tooltip="Budgets">
         <ClipboardPlus size={22} strokeWidth={1.5} />
       </MenuItem>
       <MenuItem href="/dashboard/invoice" tooltip="Invoice">

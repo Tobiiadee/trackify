@@ -7,7 +7,7 @@ import { Button } from "@/modules/common/ui/button";
 
 export default function DashboardDesktopSidebar() {
   return (
-    <div className='fixed left-0 top-0 z-50 h-screen w-20 border-r flex flex-col justify-between items-center pt-4 pb-6'>
+    <div className='hidden fixed left-0 top-0 z-50 h-screen w-20 border-r lg:flex flex-col justify-between items-center pt-4 pb-6'>
       <div className='flex flex-col space-y-16 items-center h-full'>
         <div className='relative'>
           <Image

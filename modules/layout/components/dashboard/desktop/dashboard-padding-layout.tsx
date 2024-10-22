@@ -8,5 +8,5 @@ export default function DashboardPaddingLayout({
   children: React.ReactNode;
   className?: string;
 }) {
-  return <div className={cn("pl-28 pr-6", className)}>{children}</div>;
+  return <div className={cn("px-4 lg:pl-28 lg:pr-6", className)}>{children}</div>;
 }

@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { Card } from "../ui/card";
-import { Text } from "./text";
+import { Card } from "../../../common/ui/card";
+import { Text } from "../../../common/components/text";
 // import { Button } from "../ui/button";
 import {
   Tooltip,
@@ -12,10 +12,10 @@ import {
 } from "@/modules/common/ui/tooltip";
 import { House, NotepadText, PauseIcon, Play } from "lucide-react";
 import { PriorityLevel } from "./plans-item";
-import RadialProgress from "../ui/radial-progress";
+import RadialProgress from "../../../common/ui/radial-progress";
 import PlansEdit from "./plans-edit";
-import { Textarea } from "../ui/textarea";
-import { Button } from "../ui/button";
+import { Textarea } from "../../../common/ui/textarea";
+import { Button } from "../../../common/ui/button";
 import { PlansEditContribution } from "./plans-edit-contribution";
 
 export default function PlansOverview() {
@@ -33,7 +33,7 @@ export default function PlansOverview() {
   return (
     <Card
       id='scroll'
-      className='w-full col-span-2 max-h-[76vh] p-4 flex flex-col space-y-6 overflow-y-auto'>
+      className='w-full border-none shadow-none lg:shadow-lg lg:border-2 col-span-2 sm:max-h-[76vh] sm:p-4 flex flex-col space-y-6 sm:overflow-y-auto'>
       <div className='flex items-center justify-between'>
         <div className='flex items-center space-x-4'>
           <div>
@@ -68,9 +68,11 @@ export default function PlansOverview() {
         </div>
       </div>
 
-      <div className='grid grid-cols-2 gap-4'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
         <PlansOverviewBody />
-        <RadialProgress value={30} />
+        <div className='w-full grid place-items-center'>
+          <RadialProgress value={30} />
+        </div>
       </div>
 
       <div className='flex flex-col space-y-2'>
@@ -183,7 +185,7 @@ function NoteItem({
     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias et aut fuga, soluta dolorem odio dignissimos quaerat nesciunt nobis laudantium placeat iusto architecto saepe quae suscipit vel."
   );
 
-  console.log(editNote);
+  // console.log(editNote);
 
   useEffect(() => {
     if (editNote === true) {

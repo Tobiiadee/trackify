@@ -5,7 +5,7 @@ import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/modules/common/ui/button";
-import FormFieldCustom from "./form-field-custom";
+import FormFieldCustom from "../../../common/components/form-field-custom";
 import { PlanDatePicker } from "./plans-date-picker";
 import { PlansPriorityPicker } from "./plans-priority-picker";
 import { PlansType } from "./plans-type";
@@ -18,9 +18,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../ui/form";
-import FormFieldCurrency from "./form-field-currency";
-import { Text } from "./text";
+} from "../../../common/ui/form";
+import FormFieldCurrency from "../../../common/components/form-field-currency";
+import { Text } from "../../../common/components/text";
 
 export function TextareaDemo() {
   return <Textarea placeholder='Type your message here.' />;
@@ -33,7 +33,7 @@ const formSchema = z.object({
   note: z.string(),
 });
 
-export default function PlansEditForm() {
+export default function PlansAddForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -86,7 +86,7 @@ export default function PlansEditForm() {
           <PlansType />
           <PlansContributionFrequency />
         </div>
-        <div className='flex w-full items-center space-x-4'>
+        <div className='flex items-center space-x-4'>
           <PlansCategories />
         </div>
 
@@ -96,7 +96,7 @@ export default function PlansEditForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>
-                <Text variant='h5' className='font-semibold'>
+                <Text variant={"p"} className='font-semibold'>
                   Note
                 </Text>
               </FormLabel>

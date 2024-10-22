@@ -7,7 +7,7 @@ import { Progress } from "@/modules/common/ui/progress";
 
 export default function DashboardSavingPlan() {
   return (
-    <DashboardCard className='w-full flex flex-col space-y-2'>
+    <DashboardCard className='w-full flex flex-col space-y-2 mt-4 lg:mt-0'>
       <div className='flex items-center justify-between'>
         <Text variant={"h5"} className='font-medium'>
           Saving Plans

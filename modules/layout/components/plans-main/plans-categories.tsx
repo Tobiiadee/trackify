@@ -10,7 +10,7 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/modules/common/ui/dropdown-menu";
-import { Text } from "./text";
+import { Text } from "../../../common/components/text";
 import { ChevronDown } from "lucide-react";
 
 const categories = [

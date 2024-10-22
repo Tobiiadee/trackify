@@ -7,29 +7,26 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/modules/common/ui/dialog";
-import { Button } from "../ui/button";
-import { Plus } from "lucide-react";
-import { Text } from "./text";
-import PlansAddForm from "./plans-add-form";
+import { NotebookPen } from "lucide-react";
+import { Text } from "../../../common/components/text";
+import PlansEditForm from "./plans-edit-form";
+import { PlansActionButton } from "./plans-overview";
 
-export default function PlansAdd() {
+export default function PlansEdit() {
   return (
     <Dialog>
       <DialogTrigger>
-        <Button className='flex space-x-2 bg-blue-600 hover:bg-blue-700 text-background shadow rounded-md w-max'>
-          <Plus size={20} strokeWidth={1.5} />
-          <Text variant={"p"} className='text-background'>
-            Add Plan
-          </Text>
-        </Button>
+        <PlansActionButton text='Edit plan'>
+          <NotebookPen size={20} strokeWidth={1.5} />
+        </PlansActionButton>
       </DialogTrigger>
       <DialogContent
         id='scroll'
-        className='h-[90vh] overflow-y-auto max-w-[40vw] flex flex-col space-y-6'>
+        className='lg:h-[90vh] overflow-y-auto lg:max-w-[40vw] flex flex-col space-y-6'>
         <DialogHeader className='h-max'>
           <DialogTitle>
             <Text variant={"h5"} className='text-center font-semibold'>
-              Create A New Savings Plan
+              Edit your Savings Plan
             </Text>
           </DialogTitle>
           <DialogDescription>
@@ -40,7 +37,7 @@ export default function PlansAdd() {
             </Text>
           </DialogDescription>
         </DialogHeader>
-        <PlansAddForm />
+        <PlansEditForm />
       </DialogContent>
     </Dialog>
   );

@@ -1,10 +1,10 @@
-import DashboardCard from "@/modules/layout/components/dashboard-card";
 import React from "react";
-import { Text } from "./text";
-import { Button } from "../ui/button";
+import { Text } from "../../../common/components/text";
+import { Button } from "../../../common/ui/button";
 import { MoveDownLeft, MoveUpRight } from "lucide-react";
-import { Separator } from "../ui/separator";
-import { Progress } from "../ui/progress";
+import { Separator } from "../../../common/ui/separator";
+import { Progress } from "../../../common/ui/progress";
+import DashboardCard from "@/modules/layout/components/dashboad-main/dashboard-card";
 
 export default function DashboardTotalBalance() {
   return (

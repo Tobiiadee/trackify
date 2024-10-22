@@ -54,16 +54,16 @@ export default function DashboardTransactions() {
   const router = useRouter();
 
   return (
-    <DashboardCard className='w-full col-span-2 flex flex-col space-y-6'>
+    <DashboardCard className='w-full col-span-2 flex flex-col space-y-6 overflow-x-auto'>
       <div className='flex items-center justify-between'>
         <Text variant={"h5"} className='font-medium'>
           Recent Transaction
         </Text>
       </div>
 
-      <div className='flex flex-col space-y-4'>
+      <div className='flex flex-col space-y-4 w-max'>
         <TransactionTableHeader />
-        <div className='flex flex-col space-y-1 divide-y'>
+        <div className='flex flex-col space-y-1 divide-y '>
           {transactions.map((transaction, index) => (
             <TransactionItem
               key={index}
@@ -105,7 +105,7 @@ export function TransactionItem({
   status,
 }: TransactionItemProps) {
   return (
-    <div className='grid grid-cols-[1fr_1fr_1fr_1fr_0.5fr] py-2'>
+    <div className='grid grid-cols-[1fr_1fr_1fr_1fr_0.5fr] py-2 w-full'>
       <div className='flex space-x-1 items-center'>
         <Text variant={"p"} className='text-xs font-medium'>
           {date}
@@ -166,7 +166,7 @@ export function TransactionItem({
 
 export function TransactionTableHeader() {
   return (
-    <div className='grid grid-cols-[1fr_1fr_1fr_1fr_0.5fr] gap-4 py-2 border-t border-b'>
+    <div className='w-full grid grid-cols-[1fr_1fr_1fr_1fr_0.5fr] gap-4 py-2 border-t border-b'>
       <div className='flex space-x-2 items-center'>
         <ArrowUpDown
           size={20}

@@ -8,7 +8,7 @@ import InputSearch from "@/modules/common/components/input-search";
 
 export default function DashboardDesktopHeader() {
   return (
-    <div className='w-full py-5 flex justify-between items-center'>
+    <div className='hidden w-full py-5 lg:flex justify-between items-center'>
       <div className='flex items-center'>
         <DashboardProfile />
         {/* <DashboardNav /> */}

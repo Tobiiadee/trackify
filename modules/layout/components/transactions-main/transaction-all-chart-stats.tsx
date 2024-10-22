@@ -19,7 +19,8 @@ import {
 } from "@/modules/common/ui/chart";
 import { Combobox } from "@/modules/common/components/custom-combox";
 import { useState } from "react";
-import { yearData } from "./dashboard-intro";
+import { yearData } from "../dashboad-main/dashboard-intro";
+
 
 export const description = "A bar chart showing expenses across major categories";
 
@@ -99,13 +100,13 @@ export function TransactionAllChartStats() {
 
   return (
     <Card>
-      <div className="flex items-center justify-between pr-4">
+      <div className="flex lg:items-center justify-between pr-4">
         <CardHeader>
           <CardTitle>Expense Overview by Category</CardTitle>
           <CardDescription>June 2024</CardDescription>
         </CardHeader>
 
-        <div>
+        <div className="mt-4 lg:mt-0">
           <Combobox
             items={yearData}
             onSelect={(value) => setValue(value)}

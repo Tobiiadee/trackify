@@ -1,8 +1,8 @@
 import React from "react";
-import { Text } from "./text";
-import { Progress } from "../ui/progress";
+import { Text } from "../../../common/components/text";
+import { Progress } from "../../../common/ui/progress";
 import { House } from "lucide-react";
-import DashboardCard from "@/modules/layout/components/dashboard-card";
+import DashboardCard from "../dashboad-main/dashboard-card";
 
 export default function PlansItem() {
   return (
@@ -94,19 +94,4 @@ export function PriorityLevel({ priority }: PriorityLevelProps) {
   );
 }
 
-// function AddNote() {
-//   return (
-//     <TooltipProvider>
-//       <Tooltip>
-//         <TooltipTrigger>
-//           <Button variant={"ghost"}>
-//             <NotebookPen size={18} strokeWidth={1.5} />
-//           </Button>
-//         </TooltipTrigger>
-//         <TooltipContent>
-//           <p>Add note</p>
-//         </TooltipContent>
-//       </Tooltip>
-//     </TooltipProvider>
-//   );
-// }
+
