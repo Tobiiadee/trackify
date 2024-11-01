@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { Control, Controller } from "react-hook-form";
 import {
   FormControl,
@@ -9,7 +9,7 @@ import {
 } from "../ui/form";
 import { Input } from "../ui/input";
 import { Text } from "./text";
-import NairaSvg from "./naira-svg";
+import { Download } from "lucide-react";
 
 // Define the prop types
 interface FormFieldProps {
@@ -19,17 +19,19 @@ interface FormFieldProps {
   placeholder: string;
   description?: string;
   type?: string;
+  icon?: React.ReactNode;
   // Optionally, add more fields as needed (like validation rules, errors, etc.)
 }
 
 // Create the reusable component
-const FormFieldCurrency: FC<FormFieldProps> = ({
+const FormFieldIcon: FC<FormFieldProps> = ({
   control,
   name,
   label,
   placeholder,
   description,
   type,
+  icon,
 }) => {
   return (
     <Controller
@@ -42,17 +44,17 @@ const FormFieldCurrency: FC<FormFieldProps> = ({
               {label}
             </Text>
           </FormLabel>
-          <FormControl className='relative'>
+          <FormControl className='relative w-full'>
             <div className='relative'>
-              <div className='absolute left-2 top-1/2 -translate-y-1/2'>
-                <NairaSvg />
-              </div>
               <Input
                 type={type}
-                className='pl-8'
                 placeholder={placeholder}
                 {...field}
+                className='pl-10'
               />
+              <div className='absolute left-3 top-1/2 -translate-y-1/2'>
+                {icon}
+              </div>
             </div>
           </FormControl>
           {description && <FormDescription>{description}</FormDescription>}
@@ -63,4 +65,4 @@ const FormFieldCurrency: FC<FormFieldProps> = ({
   );
 };
 
-export default FormFieldCurrency;
+export default FormFieldIcon;

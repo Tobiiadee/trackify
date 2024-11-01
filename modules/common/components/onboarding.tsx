@@ -15,14 +15,14 @@ export default function Onboarding() {
   const { push } = useRouter();
 
   return (
-    <div className='grid sm:grid-cols-3 w-full h-full '>
-      <div className='col-span-1 hidden bg-foreground/5 h-full sm:flex flex-col justify-between p-6 rounded-l-2xl'>
+    <div className='grid grid-cols-1 sm:grid-cols-3 w-full h-full '>
+      <div className='col-span-1 hidden bg-foreground/5 h-full sm:flex flex-col justify-between p-6 rounded-l-2xl '>
         <div className='flex flex-col space-y-16'>
           <Logo />
           <OnboardingLevels />
         </div>
 
-        <div className='flex justify-between items-center w-full '>
+        <div className='flex justify-between items-center w-full'>
           <Button
             onClick={() => push("/")}
             variant={"ghost"}

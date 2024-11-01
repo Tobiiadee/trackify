@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { Control, Controller } from "react-hook-form";
 import {
   FormControl,
@@ -9,7 +9,6 @@ import {
 } from "../ui/form";
 import { Input } from "../ui/input";
 import { Text } from "./text";
-import NairaSvg from "./naira-svg";
 
 // Define the prop types
 interface FormFieldProps {
@@ -19,40 +18,61 @@ interface FormFieldProps {
   placeholder: string;
   description?: string;
   type?: string;
-  // Optionally, add more fields as needed (like validation rules, errors, etc.)
+  icon?: React.ReactNode;
 }
 
+// Function to format input as 'DD-MM-YY'
+const formatDateInput = (input: string) => {
+  input = input.replace(/\D/g, ""); // Remove non-digit characters
+
+  const day = input.slice(0, 2);
+  const month = input.slice(2, 4);
+  const year = input.slice(4, 8);
+
+  let formattedValue = day;
+  if (month) formattedValue += `-${month}`;
+  if (year) formattedValue += `-${year}`;
+
+  // console.log(typeof formattedValue);
+  
+
+  return formattedValue;
+};
+
 // Create the reusable component
-const FormFieldCurrency: FC<FormFieldProps> = ({
+const FormFieldIconDate: FC<FormFieldProps> = ({
   control,
   name,
   label,
   placeholder,
   description,
   type,
+  icon,
 }) => {
   return (
     <Controller
       control={control}
       name={name}
-      render={({ field }) => (
+      render={({ field: { onChange, value, ...rest } }) => (
         <FormItem className='w-full'>
           <FormLabel>
             <Text variant={"p"} className='font-semibold'>
               {label}
             </Text>
           </FormLabel>
-          <FormControl className='relative'>
+          <FormControl className='relative w-full'>
             <div className='relative'>
-              <div className='absolute left-2 top-1/2 -translate-y-1/2'>
-                <NairaSvg />
-              </div>
               <Input
                 type={type}
-                className='pl-8'
                 placeholder={placeholder}
-                {...field}
+                value={value || ""}
+                onChange={(e) => onChange(formatDateInput(e.target.value))}
+                className='pl-10'
+                {...rest}
               />
+              <div className='absolute left-3 top-1/2 -translate-y-1/2'>
+                {icon}
+              </div>
             </div>
           </FormControl>
           {description && <FormDescription>{description}</FormDescription>}
@@ -63,4 +83,4 @@ const FormFieldCurrency: FC<FormFieldProps> = ({
   );
 };
 
-export default FormFieldCurrency;
+export default FormFieldIconDate;

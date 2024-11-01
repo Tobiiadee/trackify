@@ -69,7 +69,7 @@ export default function TransactionMain() {
           </div>
         </div>
 
-        <Filter />
+        <FilterCustom />
         <div className='w-full overflow-x-auto'>
           <div className='flex flex-col space-y-6 w-max '>
             <TransactionTableHeader />
@@ -95,7 +95,7 @@ export default function TransactionMain() {
   );
 }
 
-function Filter() {
+export function FilterCustom() {
   const [isSearch, setIsSearch] = useState(false);
 
   return (
@@ -165,7 +165,7 @@ function Filter() {
   );
 }
 
-function FilterButton() {
+export function FilterButton() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>

@@ -12,7 +12,7 @@ export default function RealTimeInsight() {
         <Text variant={"h1"} className='w-[15ch]'>
           Real-Time Insight
         </Text>
-        <Text variant={"p"} className='text-foreground/50 w-[45ch]'>
+        <Text variant={"p"} className='text-foreground/50 sm:w-[45ch]'>
           Get real-time updates on your financial health with intuitive reports
           and personalized insights.
         </Text>

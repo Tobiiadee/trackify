@@ -4,6 +4,7 @@ import { Text } from "@/modules/common/components/text";
 import { Button } from "@/modules/common/ui/button";
 import { House } from "lucide-react";
 import { Progress } from "@/modules/common/ui/progress";
+import Link from "next/link";
 
 export default function DashboardSavingPlan() {
   return (
@@ -13,10 +14,12 @@ export default function DashboardSavingPlan() {
           Saving Plans
         </Text>
 
-        <Button variant={"link"} className='text-blue-600'>
-          <Text variant={"p"} className='text-xs'>
-            View All
-          </Text>
+        <Button variant={"link"} asChild className='text-blue-600'>
+          <Link href={"/dashboard/plans"}>
+            <Text variant={"p"} className='text-xs'>
+              View All
+            </Text>
+          </Link>
         </Button>
       </div>
 

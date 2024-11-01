@@ -12,12 +12,11 @@ export default function DashbordLayout({
   return (
     <div>
       <DashboardDesktopSidebar />
-
       <DashboardPaddingLayout className=''>
         <DashboardMobileHeader />
         <DashboardDesktopHeader />
       </DashboardPaddingLayout>
-      <DashboardPaddingLayout className='pb-10'>
+      <DashboardPaddingLayout className='pb-10 min-w-screen'>
         {children}
       </DashboardPaddingLayout>
     </div>

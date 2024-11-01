@@ -25,7 +25,7 @@ export default function PlansAdd() {
       </DialogTrigger>
       <DialogContent
         id='scroll'
-        className='h-screen lg:h-[90vh] overflow-y-auto lg:max-w-[40vw] flex flex-col space-y-6'>
+        className='h-screen min-w-[100vw] border lg:min-w-[50vw] lg:h-[90vh] lg:max-w-[40vw] flex flex-col space-y-6'>
         <DialogHeader className='h-max'>
           <DialogTitle>
             <Text variant={"h5"} className='text-center font-semibold'>

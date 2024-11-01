@@ -28,8 +28,8 @@ export function TextareaDemo() {
 
 const formSchema = z.object({
   planName: z.string().min(2).max(50),
-  targetAmount: z.number().min(3),
-  startingAmount: z.number().min(3),
+  targetAmount: z.string().min(3),
+  startingAmount: z.string().min(3),
   note: z.string(),
 });
 

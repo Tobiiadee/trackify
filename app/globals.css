@@ -89,6 +89,10 @@
     @apply bg-background text-foreground;
   }
 
+  .even\:bg-foreground\/5:nth-child(even) {
+    @apply bg-foreground/5;
+  }
+
   /* Entire scrollbar */
   #scroll::-webkit-scrollbar {
     width: 12px; /* Width of the scrollbar */
@@ -124,5 +128,4 @@
   input[type="number"] {
     -moz-appearance: textfield;
   }
-
 }
