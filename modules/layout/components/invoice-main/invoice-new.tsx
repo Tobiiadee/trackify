@@ -3,7 +3,6 @@ import { Button } from "@/modules/common/ui/button";
 import React from "react";
 import InvoiceNewDetails from "./invoice-new-details";
 import InvoiceNewSetings from "./invoice-new-setings";
-import { revalidatePath } from "next/cache";
 import { useRouter } from "next/navigation";
 
 export default function InvoiceNew() {
@@ -31,12 +30,10 @@ function SaveCancelInvoice() {
 
   const handleSave = () => {
     router.push("/dashboard/invoice");
-    revalidatePath("/dashboard/invoice");
   };
 
   const handleCancel = () => {
     router.push("/dashboard/invoice");
-    revalidatePath("/dashboard/invoice");
   };
 
   return (

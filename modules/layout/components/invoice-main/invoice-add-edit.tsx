@@ -40,7 +40,7 @@ const dummyData: InvoiceAddEditFormProps = {
   ],
 };
 
-interface InvoiceAddEditProps {}
+// interface InvoiceAddEditProps {}
 
 export default function InvoiceAddEdit() {
   return (

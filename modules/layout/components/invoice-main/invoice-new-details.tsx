@@ -1,7 +1,7 @@
 import { Text } from "@/modules/common/components/text";
-import { Button } from "@/modules/common/ui/button";
 import React from "react";
 import InvoiceAddEdit from "./invoice-add-edit";
+import InvoiceSend from "./invoice-send";
 
 export default function InvoiceNewDetails() {
   return (
@@ -99,9 +99,7 @@ export default function InvoiceNewDetails() {
       </div>
 
       <div className='w-full flex items-center justify-center pt-14'>
-        <Button className='bg-blue-600 hover:bg-blue-700 text-background w-[90%]'>
-          <Text variant={"p"}>Review & Send</Text>
-        </Button>
+        <InvoiceSend />
       </div>
     </div>
   );
